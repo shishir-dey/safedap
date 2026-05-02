@@ -70,3 +70,58 @@ pub enum DapCapability {
     SwoStreaming = 1 << 6,
     UartComPort = 1 << 7,
 }
+
+pub enum DapTransfer {
+    APnDP = 1 << 0,
+    RnW = 1 << 1,
+    A2 = 1 << 2,
+    A3 = 1 << 3,
+    MatchValue = 1 << 4,
+    MatchMask = 1 << 5,
+    JtagAbort = 1 << 6,
+}
+
+pub enum DapTransferStatus {
+    Invalid = 0,
+    Ok = 1,
+    Wait = 2,
+    Fault = 3,
+    Error = 4,
+    Mismatch = 5,
+}
+
+pub enum DapPort {
+    Disabled = 0,
+    AutoDetect = 1,
+    Swd = 2,
+    Jtag = 3,
+}
+
+pub enum DapSwjMode {
+    SwclkTck = 0,
+    SwdioTms = 1,
+    Tdi = 2,
+    Tdo = 3,
+    NTrst = 4,
+    NReset = 5,
+}
+
+pub enum JtagInstruction {
+    Abort = 0x08,
+    Dpacc = 0x09,
+    Apacc = 0x0a,
+    Idcode = 0x0e,
+    Bypass = 0x0f,
+    Invalid = 0xff,
+}
+
+pub enum JtagSequence {
+    Count = 0x3f,
+    Tms = 0x40,
+    Tdo = 0x80,
+}
+
+pub enum SwdSequence {
+    Count = 0x3f,
+    Din = 0x80,
+}
